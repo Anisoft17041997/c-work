@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1461442256 source:d:\c-works\tp sem2\test\color.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+

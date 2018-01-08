@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1482943900 source:d:\c-works\listes1\liste.c
+	"liste.h"
+
+1482943704 d:\c-works\listes1\liste.h
+	<stdio.h>
+	<stdlib.h>
+
+1482929747 source:d:\c-works\listes1\main.c
+	"liste.h"
+

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1468429205 source:d:\c-works\tp sem2\exo 7.16 sta des notes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+

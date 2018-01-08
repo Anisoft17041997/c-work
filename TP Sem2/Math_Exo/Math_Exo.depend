@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1462129415 source:d:\c-works\tp sem2\math_exo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1471770807 source:d:\c-works\tp sem2\true date\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

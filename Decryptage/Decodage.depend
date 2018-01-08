@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1486117112 source:d:\c-works\decodage\main.c
+
+1486118798 source:d:\c-works\decodage\test.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+

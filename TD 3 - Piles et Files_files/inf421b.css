@@ -1,0 +1,172 @@
+/* Celui de Dominique */
+
+
+body {
+	
+	background-color:white;
+
+	color:black;
+
+}
+
+
+table.couleurTitre {
+	
+	background-color:blue;
+
+}
+
+
+.titre {
+	
+	color:#B23B00;
+
+	font-size:30pt;
+
+	text-indent:30pt;
+
+}
+
+
+.sousTitre {
+
+  	color:orange;
+
+  	font-size:20pt;
+  
+	text-indent:70pt;
+
+}
+
+
+.lien {
+	
+	color:black;
+	
+	text-decoration:none;
+
+}
+	
+
+img {
+	
+	border:0;
+
+}
+
+
+
+pre {
+
+  	border-style:dotted;
+  
+	border-color:grey;
+  
+	border-width:1px 1px 1px 1px;
+  
+	margin-bottom: 15px;
+  
+	margin-top: -3px;
+
+}	
+
+
+pre.output {
+	
+	background:lightblue;
+	
+	border-style:dotted;
+	
+	border-color:blue;
+	
+	border-width:1px 1px 1px 1px;
+
+}	
+
+ 
+h1 {
+  
+	color:#209ddb;
+  
+	font-size:120%;
+  
+	font-family: normal;
+  
+	font-variant:small-caps;
+  
+	border-color:#6E5BE5;
+  
+	padding: 3px;
+  
+	border-style: solid;
+  
+	border-width:0px 0px 5px 0px;
+  
+	margin-top: 20px;
+
+}
+
+
+
+h2 {
+  
+	font-size:100%;
+  
+	font-family: normal;
+  
+	font-variant:small-caps;
+  
+	text-indent:30px;
+  
+	color:#5943e8;
+  
+	margin-top: 15px;
+
+}	
+
+
+tt {
+	
+	color:gray;
+
+}
+
+
+.serre{ 
+  
+	margin-bottom: 5px;
+  
+	margin-top: -10px;
+  
+	padding-top: 2px;
+  
+	padding-bottom: 2px;
+
+}
+
+
+.colle{ 
+  
+	margin-bottom: 5px;
+  
+	margin-top: -15px;
+  
+	padding-top: 0px;
+  
+	padding-bottom: 0px;
+
+}
+
+
+.center{ 
+  
+	text-align: center;
+
+}
+
+
+strong { 
+  
+	color:#B23B00;
+
+}

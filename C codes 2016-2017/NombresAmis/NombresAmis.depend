@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1478375409 source:d:\c-works\c codes 2016-2017\nombresamis\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1478685492 source:d:\c-works\c codes 2016-2017\nombresamis\friendsnumbers.c
+	<stdio.h>
+	<stdlib.h>
+

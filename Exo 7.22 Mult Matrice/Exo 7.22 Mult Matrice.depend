@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1481362912 source:d:\c-works\exo 7.22 mult matrice\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1481363641 source:d:\c-works\exo 7.22 mult matrice\multi.c
+	<stdio.h>
+	"fonctions.h"
+
+1481363395 d:\c-works\exo 7.22 mult matrice\fonctions.h
+	<stdio.h>
+

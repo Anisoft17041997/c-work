@@ -1,0 +1,13 @@
+#include "prototypes.h"
+void Menu()
+{
+    /*Affichage du menu general*/
+    puts("GESTION DES INSCRITS\n");
+    puts("\t1 FICHIER DES ASPIRANTS\n");
+    puts("\t2 MIS A JOUR\n");
+    puts("\t3 SAISIE DES NOTES\n");
+    puts("\t4 CANDIDATS A RETENIR\n");
+    puts("\t5 STATISTIQUES\n");
+}
+
+

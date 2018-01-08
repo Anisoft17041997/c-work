@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1468346041 source:d:\c-works\tp sem2\examen_c_prepa\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+

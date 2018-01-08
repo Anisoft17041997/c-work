@@ -1,0 +1,56 @@
+#include "prototypes.h"
+
+
+void ActionReponse(int Rep,char *NomFichier)
+{
+    int Repons;//Reponse pour modification
+    switch (Rep)
+    {
+        case 1:
+        {
+            InitialFichier(NomFichier);
+            printf("Le contenu de tout les fichiers a %ct%c v")
+        }
+        break;
+        case 2:
+        {
+            ModificationMenu(NomFichier);
+            Repons = ChoixModification();
+            if(Repons == 1)
+            {
+                Ajout(NomFichier);
+                printf("Les Candidats ont %ct%c ajout%c avec succ%css\n",130,130,130,131);
+            }
+            else if(Repons == 2)
+            {
+                Modification(NomFichier);
+                printf("Les modifications sont prise en comptes\n");
+            }
+            else if(Repons == 3)
+            {
+                Supression(NomFichier);
+                printf("Supression r%cussit\n",130);
+            }
+            else if(Repons == 0)
+            {
+                break;
+            }
+        }
+        break;
+        case 3:
+        {
+            SaisieNote(NomFichier);
+        }
+        break;
+        case 4:
+        {
+;
+        }
+        break;
+        case 5:
+        {
+;
+        }
+        break;
+    }
+}

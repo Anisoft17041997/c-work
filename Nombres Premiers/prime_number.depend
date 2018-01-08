@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1461153142 source:e:\c_works\prime_numb1\prime_numb1.c
+	<stdio.h>
+	<math.h>
+
+1467901433 source:d:\c-works\prime_number.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<ctype.h>
+	<conio.h>
+

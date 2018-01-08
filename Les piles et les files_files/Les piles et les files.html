@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://openclassrooms.com/courses/les-piles-et-les-files-4 -->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Les piles et les files</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta charset="utf-8"><script type="text/javascript" id="analytics-js" async="" src="./Les piles et les files_files/analytics.min.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQQOUlNSCRACVFJSBQAHUQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="application-name" content="OpenClassrooms">
+<meta name="msapplication-TileColor" content="#e95325">
+<meta name="msapplication-TileImage" content="/fav-icon.png?v=1">
+<meta name="theme-color" content="#E95325">
+<link rel="icon" sizes="144x144" href="https://openclassrooms.com/fav-icon.png?v=1">
+<link rel="apple-touch-icon" href="https://openclassrooms.com/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://openclassrooms.com/apple-touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://openclassrooms.com/apple-touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://openclassrooms.com/apple-touch-icon-iphone-retina-display.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://openclassrooms.com/apple-touch-icon-ipad-retina-display.png">
+<link rel="apple-touch-icon-precomposed" href="https://openclassrooms.com/apple-touch-icon-precomposed.png">
+<link rel="shortcut icon" href="https://openclassrooms.com/favicon.ico?5c44331">
+<link href="./Les piles et les files_files/master-cf43e27a.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Les piles et les files_files/main-28201c35.css" type="text/css" rel="stylesheet" media="all">
+<script type="text/javascript" src="./Les piles et les files_files/modernizr-57226633.js"></script>
+<script src="./Les piles et les files_files/2099990903.js"></script>
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1484559154000
+    };
+
+    App.user = {
+        
+        
+        isPremium: false
+    };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: '5c44331',
+        contactMail: 'hello\x40openclassrooms.com',
+        adyenPublicKey: '10001\x7C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        layer: {
+            appId: 'layer\x3A\x2F\x2F\x2Fapps\x2Fstaging\x2F7757c53a\x2Db2ba\x2D11e5\x2Db2a6\x2D2584730b1501',
+            identityProviderUrl: '\x2Fajax\x2Fconversations\x2Fget\x2Didentity\x2Dtoken'
+        },
+        algolia: {
+            appId: 'JGRXRFVQM0',
+            apiKey: 'dfbdea500cb0b5f46e449ad334916c44', indexName: 'prod_v2_COURSES_en'
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\x2Fcomponents\x2Fuser\x2Daccept\x2Dconsent\x2Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+            };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    App.notifications = {};
+</script>
+<script>    App.data = App.data || {};
+App.data.currentCourse = {"courseId":1113781,"courseTitle":"Les piles et les files","courseSlug":"les-piles-et-les-files-4","isIntroduction":true,"isCertifying":false};
+App.preferences.modules['view/currentCoursePage'] = App.data.currentCourse;
+</script>
+<script type="application/ld+json">
+        {"@context":"http:\/\/schema.org","@type":"Course","name":"Les piles et les files","description":"Les piles et les files","provider":{"@type":"Organization","name":"OpenClassrooms","sameAs":"https:\/\/openclassrooms.com\/"}}
+
+
+
+
+        </script>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms">
+<meta property="og:url" content="https://openclassrooms.com/courses/les-piles-et-les-files-4">
+<meta property="og:site_name" content="OpenClassrooms">
+<meta property="og:image" content="">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@OpenClassrooms">
+<meta name="twitter:title" content="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms">
+<meta name="twitter:description" content="">
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body class="course oc-body ">
+<div id="react_root"></div>
+<script id="_EVENTS-PAGE" type="application/json">
+        {
+            "type": "page",
+            "integrations": {
+                "HubSpot": false
+            }
+        }
+    </script>
+<header id="oc-header" class="js-tabs-mobile mainHeader  " data-widget="header">
+<!--[if lt IE 9]>
+<div class="disclaimer  disclaimer-error">
+    The web browser you are using is out of date, please <a href="http://browsehappy.com/">upgrade</a>.
+</div>
+<![endif]-->
+<noscript>
+&lt;div class="disclaimer  disclaimer--error"&gt;
+Please use a &lt;a href="http://browsehappy.com/"&gt;modern web browser&lt;/a&gt; with JavaScript enabled to visit OpenClassrooms.com
+&lt;/div&gt;
+</noscript>
+<div class="disclaimer  disclaimer--info hidden  js-cookie-disclaimer">
+<div class="disclaimer__wrapper">
+<span class="disclaimer__content">
+Welcome to OpenClassrooms! By continuing on the site, you are agreeing to our use of cookies. <a href="https://openclassrooms.com/privacy-policy#personal-data-gathering">Read more</a>
+</span>
+<span class="disclaimer__actions">
+<a href="https://openclassrooms.com/courses/les-piles-et-les-files-4#" class="disclaimer__button  js-close-button">ok</a>
+</span>
+</div>
+</div>
+<div class="mainHeader__wrapper">
+<div class="mainHeader__inner">
+<a href="https://openclassrooms.com/" class="mainHeader__logo" title="OpenClassrooms.com">
+OpenClassrooms.com
+</a>
+<div class="mainHeader__content">
+<div id="tab-main" class="mainHeader__tabs">
+<div class="mainHeader__container mainHeader__container--mainMenu">
+<nav>
+<ul class="mainTopNav">
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/paths/">Paths</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/courses">Courses</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/partners">Partners</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item u--colorPrimary" href="https://openclassrooms.com/premium">Premium</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="mainHeader__container  mainHeader__container--search">
+<div id="tab-search" class="mainHeader__search  js-header-searchContainer"><div class="js-courseSearch  topSearchBox" data-widget="courseSearch">
+<form tabindex="0" class="js-courseSearch-form  oc-form" action="https://openclassrooms.com/courses" method="get">
+<div class="js-courseSearch-inputGroup oc-form__widget  inputGroup topSearchBox__inner u--block">
+<i class="topSearchBox__icon icon-search"></i>
+<input id="algolia-search-input" type="search" class="js-courseSearch-input oc-form__control inputGroup__input  topSearchBox__input ais-search-box--input search-form__main-field" title="Search" autocomplete="off" data-option_source="https://openclassrooms.com/components/courses/search?q=&lt;%= term %&gt;" placeholder="Search" aria-label="Search" name="q" autocapitalize="off" autocorrect="off" role="textbox" spellcheck="false" value="">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="mainHeader__container  mainHeader__container--login">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+Sign up
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Sign in
+</a>
+</div>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-sign-in_popin_title" class="popin popin--small  js-popin" id="popin-sign-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-sign-in_popin_title" class="popin__title  js-popin-title">Register</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&state=0ca3e72ad45220cdf4a88a5389ab71b4&response_type=code&sdk=php-sdk-5.4.3&redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&scope=public_profile%2Cemail%2Cuser_birthday">
+<i class="icon-facebook"></i>Register with Facebook
+</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto">
+<i class="icon-google"></i>Register with Google
+</a>
+</li>
+<li class="formLogin__column">
+<form name="register" method="post" action="https://openclassrooms.com/register" class="js-registerForm oc-form">
+<div class="accessibility-hidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Wonder&nbsp;
+</span><span class="oc-form__widget formWidget "><input type="text" id="register_wonder" name="register[wonder]" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+First name&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_firstName" name="register[firstName]" required="required" maxlength="100" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Surname&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_lastName" name="register[lastName]" required="required" maxlength="100" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Email address&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="email" id="register_email" name="register[email]" required="required" maxlength="80" aria-label=" " class=" textInput textInput--email"></span></label>
+<p>
+<em>
+We will send your password to this address.
+</em>
+</p>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="register_terms" name="register[terms]" required="required" aria-label=" " class="" value="1"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+I have read and agree to the <a target="_blank" href="https://openclassrooms.com/terms-conditions">Terms of Use</a>.&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span></span></label>
+</div>
+<div class="oc-form__group  center-text">
+<button type="submit" id="register_create" name="register[create]" class="button button--primary button"> Register</button>
+</div>
+<input type="hidden" id="register__target_path" name="register[_target_path]" class=" textInput textInput--hidden" value="https://openclassrooms.com/courses/les-piles-et-les-files-4"><input type="hidden" id="register__token" name="register[_token]" class=" textInput textInput--hidden" value="OpK9Ar-GZoK9YkaBlOmcA1mLD6E17wluqk7aLyv76I4"></form>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-log-in_popin_title" class="popin popin--small  js-popin" id="popin-log-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-log-in_popin_title" class="popin__title  js-popin-title">Sign in</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&state=0ca3e72ad45220cdf4a88a5389ab71b4&response_type=code&sdk=php-sdk-5.4.3&redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&scope=public_profile%2Cemail%2Cuser_birthday"><i class="icon-facebook"></i> Sign in with Facebook</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto"><i class="icon-google"></i> Sign in with Google</a>
+</li>
+<li class="formLogin__column">
+<form name="" method="post" action="https://openclassrooms.com/login_check" class=" oc-form">
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Email address or username&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="_username" name="_username" required="required" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Password&nbsp; <abbr class="oc-form__required" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="password" id="_password" name="_password" required="required" aria-label=" " class=" textInput textInput--password"></span></label>
+</div>
+<div class="oc-form__group">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="_remember_me" name="_remember_me" aria-label=" " class="" value="1" checked="checked"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+Remember me&nbsp;
+</span></span></label>
+</div>
+<div class="oc-form__group right-text">
+<a href="https://openclassrooms.com/set-new-password">Forgot your password?</a>
+</div>
+<div class="oc-form__group  center-text">
+<input type="hidden" id="_target_path" name="_target_path" class=" textInput textInput--hidden" value="https://openclassrooms.com/courses/les-piles-et-les-files-4"><div>
+<button type="submit" id="login" name="login" class="button--primary button"> Sign in</button></div><input type="hidden" id="_csrf_token" name="_csrf_token" class=" textInput textInput--hidden" value="J2qk3ctcoQR6DXSlCIgl8QxiVLDXUq5EadC5BkfKZZg">
+</div>
+</form>
+</li>
+</ul>
+<p class="text-center space-top">
+Not a member yet? <a href="https://openclassrooms.com/register">Register for free</a> in 30 seconds.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<nav role="navigation" class="icoTabs  mainHeader__tabSet">
+<div class="mainHeader__mobileNav">
+<span class="icoTabs__tab  mainHeader__tabLogin">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+Sign up
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Sign in
+</a>
+</span>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabSearch" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#tab-search">
+<span class="accessibility-hidden">Search</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabCourseMenu  is-disabled" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#tab-courseMenu">
+<span class="accessibility-hidden">Course</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#tab-courseEditMenu">
+<span class="accessibility-hidden">Create a course</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" data-tabs-default="true" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#tab-searchMenu">
+<span class="accessibility-hidden">Search</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#tab-main">
+<span class="accessibility-hidden">Main menu</span>
+<i class="icon-menu  icoTabs__icon"></i>
+</a>
+</div>
+</nav>
+<div class="js-tabs-content  mainHeader__content"></div>
+</div>
+</div>
+</header>
+<div class="centered">
+<div id="mainSearch" class="mainSearch"><div data-reactroot=""><button class="mainSearch__close hidden" aria-label="Close button"><i class="icon-cross"></i></button><input type="text" class="mainSearch__input" placeholder="Web, Design, etc." aria-label="Find a course"><div class="searchFacetsPopup space-bottom"><div class="searchFacetsPopup__overlay"></div><p class="searchFacetsPopup__selectedCategory"><!-- react-text: 8 -->in<!-- /react-text --><a class="searchFacetsPopup__selectedCategoryLink"></a></p><div class="searchFacetsPopup__content"><div></div></div></div><a class="mainSearch__uncertificateFilter hidden"><span class="bullet bullet--small bullet--grey bullet--smallIcon"><i class="icon-close"></i></span><!-- react-text: 15 --> <!-- /react-text --><!-- react-text: 16 -->including non-certifying courses<!-- /react-text --></a><div></div><div></div><p class="space-top"><!-- react-text: 20 -->Include the <!-- /react-text --><!-- react-text: 21 --> <!-- /react-text --><a><!-- react-text: 23 -->...<!-- /react-text --><!-- react-text: 24 --> <!-- /react-text --><!-- react-text: 25 -->non-certifying courses<!-- /react-text --></a><!-- react-text: 26 --> <!-- /react-text --><!-- react-text: 27 -->matching the search criteria<!-- /react-text --></p></div></div>
+</div>
+<div id="mainContentWithHeader">
+<div id="pre-main-part">
+<section class="inset no-padding">
+<div class="centered">
+<h6 class="accessibility-hidden">Breadcrumb</h6>
+<nav class="breadcrumb">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item breadcrumb__item--home " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/" itemprop="url">
+<span itemprop="title">Home</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/courses" itemprop="url">
+<span itemprop="title">Course</span>
+</a>
+</li>
+<li class="breadcrumb__item  breadcrumb__item--current" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+Les piles et les files
+</li>
+</ul>
+</nav>
+</div>
+</section>
+</div>
+<div class="claire clearfix">
+<article itemscope="" itemtype="http://schema.org/Article">
+<header class="course-header" xmlns="http://www.w3.org/1999/html">
+<div class="centered"><div class="course-header__topPart"><div class="course-header__info"><a itemprop="url" href="./Les piles et les files_files/Les piles et les files.html"><h1 data-course-title="Les piles et les files">Les piles et les files</h1></a><span class="course-header__updatedTime visible-l">Last updated on Wednesday, October 30, 2013</span></div></div></div><div class="course-header__details-container"><div class="centered"><div class="row"><div class="col12"><div class="course-header__details  iconBar"><div class="course-header__detailsGroup  course-header__detailsGroup--formats iconBar__group"><ul data-option_popinselector="#popin-formats-availables" class="course-types iconBar__list js-course-formats-bar"><li class="iconBar__item  course-types__item  js-tooltip" title="Free online content available in this course"><a href="./Les piles et les files_files/Les piles et les files.html"><i class="icon-desktop  course-types__icon"></i><span class="course-header__format-current"></span></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="No videos yet in this course"><span><i class="icon-video course-types__icon"></i></span></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="No paperback yet in this course"><a href="" target="_blank"><i class="icon-book  course-types__icon"></i></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="No eBook yet in this course"><a href=""><i class="icon-ebook  course-types__icon"></i></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="No certificate of achievement yet at the end of this course"><a><i class="icon-badge  course-types__icon"></i></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="No European academic credits (ECTS) can be earned yet in this course "><span><i class="icon-hat  course-types__icon"></i></span></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="You can&#39;t yet get support from a mentor via videoconference on this course."><a><i class="icon-mentor  course-types__icon"></i></a></li></ul></div><div class="course-header__detailsGroup  course-header__detailsGroup--info  iconBar__group"><ul class="iconBar__list"><li class="iconBar__item"><i class="icon-level iconBar__icon"></i><span class="iconBar__label">
+Easy
+</span></li></ul></div><div class="course-header__detailsGroup course-header__detailsGroup--licences iconBar__group"><a target="_blank" href="https://creativecommons.org/licenses/default/2.0"><span class="iconBar__label">License</span><ul class="iconBar__list"></ul></a></div></div></div></div></div></div>
+<div id="popin-formats-availables" class="popin popin--course-formats-availables">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="course-types course-types--withSpace">
+<a class="course-types__item" href="./Les piles et les files_files/Les piles et les files.html">
+<i class="icon-desktop course-types__icon"></i>
+</a>
+</div>
+<p><a href="./Les piles et les files_files/Les piles et les files.html">Free online content</a> available in this course.</p>
+<a class="button button--primary js-close-button" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#">Got it!</a>
+</div>
+</header>
+<div class="centered">
+<div class="contentWithSidebar  spacer  js-contentWithSidebar" data-widget="contentWithSidebar">
+<main class="contentWithSidebar__content">
+<div class="relative js-sidebar-container">
+<div class="static">
+<div class="row">
+<div class="col9 col11-s col__small-padding--right">
+<div class="tooltipMessage tooltipMessage--noArrow">
+<i class="tooltipMessage__icon  icon-lock"></i>
+<a href="https://openclassrooms.com/login" class="js-popin-activator" data-popin-selector="#popin-log-in">Log in</a> or <a href="https://openclassrooms.com/register" class="js-popin-activator" data-popin-selector="#popin-sign-in">subscribe</a> to enjoy all this course has to offer!
+</div>
+<h2 class="accessibility-hidden">Introduction du cours</h2>
+<div class="text-center  spacer-big">
+<div>
+<a href="https://openclassrooms.com/login" class="button button--primary js-popin-activator" data-popin-selector="#popin-log-in">
+<i class="icon-lock"></i>
+Start the course
+</a>
+</div>
+<a class="button button--link" href="https://openclassrooms.com/how-does-it-work">
+<span>How does it work?</span>
+</a>
+</div>
+<section>
+<div itemprop="articleBody" data-page-indentifier="/courses/les-piles-et-les-files-4" class="js-isRestrictablePage course-content js-course-container js-smilize js-course-content">
+<p id="r-1113786" data-claire-element-id="1117201">En plus des tableaux, les piles ainsi que les files constituent un bon moyen de stocker diverses données en langage C. Dans ce tutoriel, nous verrons à quoi cela correspond et comment nous en servir.</p><h2 id="r-1113791" data-claire-element-id="1117206">Quelques définitions</h2><p id="r-1113787" data-claire-element-id="1117202">Les piles (<em>stack</em>) et les files (<em>queue</em>) constituent des <strong>structures de données</strong>. Elles vont, comme leur nom l'indique, nous permettre de stocker diverses données, comme pourrait le faire un tableau.</p><p id="r-1113788" data-claire-element-id="1117203">Une pile permet de réaliser ce que l'on nomme une <strong>LIFO</strong> (<em><strong>L</strong>ast <strong>I</strong>n <strong>F</strong>irst <strong>O</strong>ut</em>), ce qui signifie en clair que les derniers éléments à être ajoutés à la pile seront les premiers à être récupérés. Il est possible de comparer cela à une pile d'assiettes. Lorsqu'on ajoute une assiette en haut de la pile, on retire toujours en premier celle qui se trouve en haut de la pile, c'est-à-dire celle qui a été ajoutée en dernier, sinon tout le reste s'écroule.</p><p id="r-1113789" data-claire-element-id="1117204">Une file, quant à elle, permet de réaliser une <strong>FIFO</strong> (<em><strong>F</strong>irst <strong>I</strong>n <strong>F</strong>irst <strong>O</strong>ut</em>), ce qui veut dire que les premiers éléments ajoutés à la file seront aussi les premiers à être récupérés.</p><p id="r-1113790" data-claire-element-id="1117205">Les piles peuvent être utilisées dans des algorithmes d'évaluation d'expressions mathématiques.<br> Les files peuvent être utilisées afin de mémoriser des données en attente de traitement.</p><h2 id="r-1113889" data-claire-element-id="1117304">Les piles</h2><p id="r-1113792" data-claire-element-id="1117207">En langage C, l'implémentation des piles est basée sur les <strong>listes chaînées</strong>. Comment, vous ne savez pas ce que sont les listes chaînées ? Ce n'est pas grave, car vous pourrez lire <a href="http://www.siteduzero.com/tuto-3-9440-1-les-listes-chainees.html">l'excellent tutoriel</a> rédigé par lexou qui vous permettra alors de vous initier aux listes chaînées.</p><aside id="r-1113794" data-claire-element-id="1117209" data-claire-semantic="warning"><p id="r-1113793" data-claire-element-id="1117208">Afin de pouvoir comprendre correctement ce tutoriel, il est nécessaire d'avoir des connaissances sur les listes chaînées. Ces connaissances, vous pourrez les acquérir grâce au tutoriel donné ci-dessus.</p></aside><p id="r-1113795" data-claire-element-id="1117210">Vous voilà maintenant avertis, nous allons pouvoir commencer à nous lancer dans l'implémentation de notre pile en langage C.</p><h3 id="r-1113808" data-claire-element-id="1117223">La structure de la pile</h3><p id="r-1113796" data-claire-element-id="1117211">Tout d'abord, nous allons commencer par définir notre structure qui constituera notre pile. Pour notre exemple, nous allons créer une pile d'entiers (int). Comme dit plus haut, notre pile sera basée sur une liste chaînée (simple). Chaque élément de la pile pointera vers l'élément précédent. La liste pointera toujours vers le sommet de la pile. Voici donc la structure qui constituera notre pile :</p><pre id="r-1113797" data-claire-element-id="1117212"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;typedef struct pile\n{\n    int donnee; /* La donnée que notre pile stockera. */\n    struct pile *precedent; /* Pointeur vers l&#39;élément précédent de la pile. */\n} Pile;\n&quot;}">typedef struct pile
+{
+    int donnee; /* La donnée que notre pile stockera. */
+    struct pile *precedent; /* Pointeur vers l'élément précédent de la pile. */
+} Pile;
+</code></pre><p id="r-1113798" data-claire-element-id="1117213">Pour avoir une idée de ce à quoi ressemblera notre pile, voici un schéma qui pourra vous aider à mieux la visualiser :</p><figure id="r-1113801" data-claire-element-id="1117216"><img id="r-1113799" data-claire-element-id="1117214" src="./Les piles et les files_files/61658.png" alt="pile"></figure><p id="r-1113802" data-claire-element-id="1117217">Chaque case représente un <strong>élément</strong> de la pile. Comme vous le voyez, les cases sont en quelque sorte <em>emboîtées</em> les unes sur les autres.</p><p id="r-1113803" data-claire-element-id="1117218">Néanmoins, ce schéma n'est pas complet. En effet, la position du pointeur n'y est pas représentée. Voici le schéma complet final :</p><figure id="r-1113806" data-claire-element-id="1117221"><img id="r-1113804" data-claire-element-id="1117219" src="./Les piles et les files_files/61659.png" alt="pile"></figure><p id="r-1113807" data-claire-element-id="1117222">Le pointeur est alors représenté par le jeton noir, figurant tout en haut de le pile, car, rappelez-vous, notre pointeur devra toujours pointer vers le sommet de la pile.<br> Enfin, on peut dire que les piles sont un cas particulier des listes chaînées. En effet, lors de l'ajout d'un nouvel élément, celui-ci se fera en fin de liste. Identiquement, l'élément qui sera effacé en premier sera l'élément se trouvant en fin de liste.</p><h3 id="r-1113839" data-claire-element-id="1117254">Ajout d'un nouvel élément</h3><p id="r-1113809" data-claire-element-id="1117224">Tout d'abord, nous allons voir comment ajouter un élément dans notre pile. Pour cela, nous allons réaliser une fonction pile_push dont voici le prototype :</p><pre id="r-1113810" data-claire-element-id="1117225"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void pile_push(Pile **p_pile, int donnee);\n&quot;}">void pile_push(Pile **p_pile, int donnee);
+</code></pre><p id="r-1113811" data-claire-element-id="1117226">Il faut alors remarquer que la fonction ne renverra pas la nouvelle pile, c'est pour cela que l'on choisit de passer par un pointeur, ce qui permettra de modifier directement notre pile dans la fonction. Mais, comment l'ajout va-t-il se faire ? Vous allez voir, le principe est simple. Voici les étapes qui vont nous permettre d'ajouter notre élément dans la pile :</p><pre id="r-1113812" data-claire-element-id="1117227"><code>1.&nbsp;On&nbsp;crée&nbsp;un&nbsp;nouvel&nbsp;élément&nbsp;de&nbsp;type&nbsp;Pile.
+
+2.&nbsp;On&nbsp;vérifie&nbsp;que&nbsp;l'élément&nbsp;a&nbsp;bien&nbsp;été&nbsp;créé.
+
+3.&nbsp;On&nbsp;assigne&nbsp;à&nbsp;la&nbsp;donnée&nbsp;de&nbsp;cet&nbsp;élément&nbsp;la&nbsp;donnée&nbsp;que&nbsp;l'on&nbsp;veut&nbsp;ajouter.
+
+4.&nbsp;On&nbsp;fait&nbsp;pointer&nbsp;cet&nbsp;élément&nbsp;sur&nbsp;le&nbsp;sommet&nbsp;de&nbsp;la&nbsp;pile.
+
+5.&nbsp;On&nbsp;fait&nbsp;pointer&nbsp;le&nbsp;sommet&nbsp;de&nbsp;la&nbsp;pile&nbsp;sur&nbsp;cet&nbsp;élément.</code></pre><p id="r-1113813" data-claire-element-id="1117228">Maintenant que nous avons <em>l'algorithme</em>, voyons son implémentation (réalisation) en langage C.</p><h4 id="r-1113816" data-claire-element-id="1117231">1. On crée un nouvel élément de type Pile</h4><pre id="r-1113814" data-claire-element-id="1117229"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;Pile *p_nouveau = malloc(sizeof *p_nouveau);\n&quot;}">Pile *p_nouveau = malloc(sizeof *p_nouveau);
+</code></pre><p id="r-1113815" data-claire-element-id="1117230">Grâce à malloc, on alloue de la place pour notre nouveau maillon de la pile. Remarquez alors que je n'ai pas mis sizeof Pile dans le malloc mais sizeof *p_nouveau, ce qui revient exactement au même. Cependant, la deuxième forme présente un avantage. En effet, si, par exemple, on modifie le nom de notre structure, il ne sera pas la peine de le modifier dans notre malloc.</p><h4 id="r-1113819" data-claire-element-id="1117234">2. On vérifie que l'élément a bien été créé</h4><pre id="r-1113817" data-claire-element-id="1117232"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;if (p_nouveau != NULL)\n{\n}\n&quot;}">if (p_nouveau != NULL)
+{
+}
+</code></pre><p id="r-1113818" data-claire-element-id="1117233">Cette étape consiste tout simplement à vérifier si notre nouvel élément créé est bel et bien utilisable. Il suffit alors de vérifier si l'allocation s'est bien passée, c'est-à-dire si malloc n'a pas retourné NULL.</p><h4 id="r-1113822" data-claire-element-id="1117237">3. On assigne à la donnée de cet élément la donnée que l'on veut ajouter</h4><pre id="r-1113820" data-claire-element-id="1117235"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;p_nouveau-&gt;donnee = donnee;\n&quot;}">p_nouveau-&gt;donnee = donnee;
+</code></pre><p id="r-1113821" data-claire-element-id="1117236">Ici, on assigne tout simplement à p_nouveau-&gt;donnee (rappelez-vous la structure) la donnée que l'on passe en paramètre, de manière à ce que l'on puisse la stocker dans la pile.</p><h4 id="r-1113825" data-claire-element-id="1117240">4. On fait pointer cet élément sur le sommet de la pile</h4><pre id="r-1113823" data-claire-element-id="1117238"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;p_nouveau-&gt;precedent = *p_pile;\n&quot;}">p_nouveau-&gt;precedent = *p_pile;
+</code></pre><p id="r-1113824" data-claire-element-id="1117239">Par cette étape, on commence à attacher notre nouvel élément créé à la pile.</p><h4 id="r-1113838" data-claire-element-id="1117253">5. On fait pointer le sommet de la pile sur cet élément</h4><pre id="r-1113826" data-claire-element-id="1117241"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;*p_pile = p_nouveau;\n&quot;}">*p_pile = p_nouveau;
+</code></pre><p id="r-1113827" data-claire-element-id="1117242">Enfin, on finalise notre attachement en faisant pointer la pile vers notre élément, ce qui nous permet d'avoir un pointeur vers le sommet de la pile.</p><p id="r-1113828" data-claire-element-id="1117243">En rassemblant toutes les étapes, voici notre fameuse fonction :</p><pre id="r-1113829" data-claire-element-id="1117244"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void pile_push(Pile **p_pile, int donnee)\n{\n        Pile *p_nouveau = malloc(sizeof *p_nouveau);\n        if (p_nouveau != NULL)\n        {\n                p_nouveau-&gt;donnee = donnee;\n                p_nouveau-&gt;precedent = *p_pile;\n                *p_pile = p_nouveau;\n        }\n}\n&quot;}">void pile_push(Pile **p_pile, int donnee)
+{
+        Pile *p_nouveau = malloc(sizeof *p_nouveau);
+        if (p_nouveau != NULL)
+        {
+                p_nouveau-&gt;donnee = donnee;
+                p_nouveau-&gt;precedent = *p_pile;
+                *p_pile = p_nouveau;
+        }
+}
+</code></pre><p id="r-1113830" data-claire-element-id="1117245">Si vous avez du mal à visualiser comment se déroule l'ajout, voici un schéma :</p><figure id="r-1113833" data-claire-element-id="1117248"><img id="r-1113831" data-claire-element-id="1117246" src="./Les piles et les files_files/63394.png" alt="Image utilisateur"></figure><p id="r-1113834" data-claire-element-id="1117249">Dans ce schéma, on suppose que l'on veut ajouter la valeur 14 à la pile et que la création du nouvel élément s'est bien passée. Ce schéma vous montre les différentes étapes jusqu'à l'étape 4. Ici, nous pointons sur l'avant-dernier élément de la pile, d'où l'étape 5 pour « monter » le pointeur d'un cran comme ceci :</p><figure id="r-1113837" data-claire-element-id="1117252"><img id="r-1113835" data-claire-element-id="1117250" src="./Les piles et les files_files/63396.png" alt="Image utilisateur"></figure><h3 id="r-1113865" data-claire-element-id="1117280">Retrait d'un élément</h3><p id="r-1113840" data-claire-element-id="1117255">Voyons maintenant comment retirer un élément de la pile. L'élément qui sera retiré sera le dernier élément que l'on a ajouté, c'est-à-dire l'élément se trouvant au sommet de la pile. Voici le prototype de notre fonction :</p><pre id="r-1113841" data-claire-element-id="1117256"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int pile_pop(Pile **p_pile);\n&quot;}">int pile_pop(Pile **p_pile);
+</code></pre><p id="r-1113842" data-claire-element-id="1117257">À l'instar de la première fonction, cette fonction modifiera aussi directement la pile grâce à un pointeur. La fonction renverra la valeur de l'élément qu'elle a dépilée. Regardons désormais les différentes étapes nous permettant de retirer un élément :</p><pre id="r-1113843" data-claire-element-id="1117258"><code>1.&nbsp;Vérifier&nbsp;si&nbsp;la&nbsp;pile&nbsp;n'est&nbsp;pas&nbsp;vide.
+
+2.&nbsp;Si&nbsp;elle&nbsp;ne&nbsp;l'est&nbsp;pas,&nbsp;stocker&nbsp;dans&nbsp;un&nbsp;élément&nbsp;temporaire&nbsp;l'avant-dernier&nbsp;élément&nbsp;de&nbsp;la&nbsp;pile.
+
+3.&nbsp;Stocker&nbsp;dans&nbsp;une&nbsp;variable&nbsp;locale&nbsp;la&nbsp;valeur&nbsp;étant&nbsp;stockée&nbsp;dans&nbsp;le&nbsp;dernier&nbsp;élément&nbsp;de&nbsp;la&nbsp;pile.
+
+4.&nbsp;Supprimer&nbsp;le&nbsp;dernier&nbsp;élément.
+
+5.&nbsp;Faire&nbsp;pointer&nbsp;la&nbsp;pile&nbsp;vers&nbsp;notre&nbsp;élément&nbsp;temporaire.
+
+6.&nbsp;Retourner&nbsp;la&nbsp;valeur&nbsp;dépilée.</code></pre><p id="r-1113844" data-claire-element-id="1117259">Dans cette fonction, on retrouve une étape en plus, car notre fonction doit retourner une valeur de type int.<br> Passons maintenant à l'implémentation.</p><h4 id="r-1113847" data-claire-element-id="1117262">1. Vérifier si la pile n'est pas vide</h4><pre id="r-1113845" data-claire-element-id="1117260"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;if (*p_pile != NULL)\n{\n}\n&quot;}">if (*p_pile != NULL)
+{
+}
+</code></pre><p id="r-1113846" data-claire-element-id="1117261">Ici, il suffit juste de vérifier si la pile n'est pas un pointeur NULL. Si ce n'est pas le cas, la pile n'est pas vide.</p><h4 id="r-1113850" data-claire-element-id="1117265">2. Si elle ne l'est pas, stocker dans un élément temporaire l'avant-dernier élément de la pile</h4><pre id="r-1113848" data-claire-element-id="1117263"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;Pile *temporaire = (*p_pile)-&gt;precedent;\n&quot;}">Pile *temporaire = (*p_pile)-&gt;precedent;
+</code></pre><p id="r-1113849" data-claire-element-id="1117264">Rappelez-vous, nous pointons toujours vers le dernier élément de la pile, donc l'élément précédent est l'avant-dernier élément de la pile.</p><h4 id="r-1113853" data-claire-element-id="1117268">3. Stocker dans une variable locale la valeur étant stockée dans le dernier élément de la pile</h4><pre id="r-1113851" data-claire-element-id="1117266"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;ret = (*p_pile)-&gt;donnee;\n&quot;}">ret = (*p_pile)-&gt;donnee;
+</code></pre><p id="r-1113852" data-claire-element-id="1117267">Nous voulons retourner la valeur de l'élément que nous allons supprimer, il est donc nécessaire de la récupérer avant de supprimer cet élément.<br> N.B. : la variable ret sera déclarée en haut de la fonction et initialisée à -1.</p><h4 id="r-1113856" data-claire-element-id="1117271">4. Supprimer le dernier élément</h4><pre id="r-1113854" data-claire-element-id="1117269"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;free(*p_pile), *p_pile = NULL;\n&quot;}">free(*p_pile), *p_pile = NULL;
+</code></pre><p id="r-1113855" data-claire-element-id="1117270">La pile pointe sur le dernier élément, il suffit donc d'utiliser free pour supprimer le dernier élément. De plus, après chaque free, il ne faut pas oublier de remettre le pointeur à NULL.</p><h4 id="r-1113859" data-claire-element-id="1117274">5. Faire pointer la pile vers notre élément temporaire</h4><pre id="r-1113857" data-claire-element-id="1117272"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;*p_pile = temporaire;\n&quot;}">*p_pile = temporaire;
+</code></pre><p id="r-1113858" data-claire-element-id="1117273">Afin de « mettre à jour » notre pile, on la fait pointer sur notre élément temporaire qui est l'avant-dernier élément de la pile.</p><h4 id="r-1113864" data-claire-element-id="1117279">6. Retourner la valeur dépilée</h4><pre id="r-1113860" data-claire-element-id="1117275"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;return ret;\n&quot;}">return ret;
+</code></pre><p id="r-1113861" data-claire-element-id="1117276">Il suffit tout simplement d'utiliser l'instruction return pour retourner la valeur de l'élément que l'on vient de supprimer.</p><p id="r-1113862" data-claire-element-id="1117277">Voici donc notre fonction complète :</p><pre id="r-1113863" data-claire-element-id="1117278"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int pile_pop(Pile **p_pile)\n{\n    int ret = -1;\n    if (p_pile != NULL)\n    {\n        Pile *temporaire = (*p_pile)-&gt;precedent;\n        ret = (*p_pile)-&gt;donnee;  \n        free(*p_pile), *p_pile = NULL;\n        *p_pile = temporaire;\n    }\n    return ret;\n}\n&quot;}">int pile_pop(Pile **p_pile)
+{
+    int ret = -1;
+    if (p_pile != NULL)
+    {
+        Pile *temporaire = (*p_pile)-&gt;precedent;
+        ret = (*p_pile)-&gt;donnee;  
+        free(*p_pile), *p_pile = NULL;
+        *p_pile = temporaire;
+    }
+    return ret;
+}
+</code></pre><h3 id="r-1113878" data-claire-element-id="1117293">Vidage de la pile</h3><p id="r-1113866" data-claire-element-id="1117281">Nous allons maintenant étudier notre dernière fonction ensemble. Il s'agit de la fonction permettant d'effacer la pile. Voici son prototype :</p><pre id="r-1113867" data-claire-element-id="1117282"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void pile_clear(Pile **p_pile);\n&quot;}">void pile_clear(Pile **p_pile);
+</code></pre><p id="r-1113868" data-claire-element-id="1117283">Comme vous l'aurez sans doute deviné, cette fonction modifie aussi directement la pile. Malgré tout, cette fonction se réalise en seulement deux étapes :</p><pre id="r-1113869" data-claire-element-id="1117284"><code>1.&nbsp;Tant&nbsp;que&nbsp;la&nbsp;pile&nbsp;n'est&nbsp;pas&nbsp;vide.
+
+2.&nbsp;Effacer&nbsp;le&nbsp;dernier&nbsp;élément&nbsp;de&nbsp;la&nbsp;pile.</code></pre><p id="r-1113870" data-claire-element-id="1117285">Voici le code en langage C…</p><h4 id="r-1113873" data-claire-element-id="1117288">1. Tant que la pile n'est pas vide</h4><pre id="r-1113871" data-claire-element-id="1117286"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;while (*p_pile != NULL)\n{\n}\n&quot;}">while (*p_pile != NULL)
+{
+}
+</code></pre><p id="r-1113872" data-claire-element-id="1117287">Ici, il suffit tout simplement de réaliser une boucle while pour vérifier si la pile est vide ou pas.</p><h4 id="r-1113877" data-claire-element-id="1117292">2. Effacer le dernier élément de la pile</h4><pre id="r-1113874" data-claire-element-id="1117289"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;pile_pop(p_pile);\n&quot;}">pile_pop(p_pile);
+</code></pre><p id="r-1113875" data-claire-element-id="1117290">Grâce à la fonction pile_pop que nous venons de créer, on efface le dernier élément de la pile. Ainsi, tous les éléments sont effacés un par un. Voici la fonction finale :</p><pre id="r-1113876" data-claire-element-id="1117291"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void pile_clear(Pile **p_pile)\n{\n    while (*p_pile != NULL)\n    {\n        pile_pop(p_pile);\n    }\n}\n&quot;}">void pile_clear(Pile **p_pile)
+{
+    while (*p_pile != NULL)
+    {
+        pile_pop(p_pile);
+    }
+}
+</code></pre><h3 id="r-1113888" data-claire-element-id="1117303">Exercice</h3><h4 id="r-1113882" data-claire-element-id="1117297">Énoncé</h4><p id="r-1113879" data-claire-element-id="1117294">Je vous propose maintenant un exercice. Eh oui, c'est un peu à vous de coder. <img alt=":-°" class="smilies js-smiley" src="./Les piles et les files_files/siffle.png"> Pour cet exercice, je vous propose de créer une fonction pile_peek retournant la valeur du dernier élément, mais sans le dépiler comme le ferait la fonction pile_pop. Voici le prototype de cette fonction :</p><pre id="r-1113880" data-claire-element-id="1117295"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int pile_peek(Pile *p_pile);\n&quot;}">int pile_peek(Pile *p_pile);
+</code></pre><p id="r-1113881" data-claire-element-id="1117296">Si la pile est vide, la fonction devra retourner -1. Allez, je vous laisse faire.<br> N.B. : remarquez que pour cette fonction, il n'est pas utile de passer l'adresse de la pile à la fonction, car celle-ci ne modifie pas notre pile. C'est pour cela que nous mettons un seul * au lieu de deux.</p><h4 id="r-1113887" data-claire-element-id="1117302">Solution</h4><p id="r-1113883" data-claire-element-id="1117298">Maintenant, passons à la solution. J'espère que vous avez au moins essayé l'exercice avant de regarder cette solution. Voici donc le code corrigé et commenté :</p><p id="r-1113884" data-claire-element-id="1117299"></p><pre id="r-1113885" data-claire-element-id="1117300"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int pile_peek(Pile *p_pile)\n{\n    int ret = -1; /* Variable de retour. */\n    if (p_pile != NULL) /* Si la pile n&#39;est pas vide. */\n    {\n        ret = p_pile-&gt;donnee; /* On stocke dans la variable ret la valeur du dernier élément. */\n    }\n    return ret;\n}\n&quot;}">int pile_peek(Pile *p_pile)
+{
+    int ret = -1; /* Variable de retour. */
+    if (p_pile != NULL) /* Si la pile n'est pas vide. */
+    {
+        ret = p_pile-&gt;donnee; /* On stocke dans la variable ret la valeur du dernier élément. */
+    }
+    return ret;
+}
+</code></pre><p id="r-1113886" data-claire-element-id="1117301">Voilà, nous en avons fini avec les piles, et nous allons maintenant pouvoir passer aux files.</p><h2 id="r-1113945" data-claire-element-id="1117360">Les files</h2><p id="r-1113890" data-claire-element-id="1117305">Après avoir vu les piles et leur fonctionnement en langage C, nous allons maintenant nous intéresser aux files.</p><aside id="r-1113892" data-claire-element-id="1117307" data-claire-semantic="information"><p id="r-1113891" data-claire-element-id="1117306">Dans cette partie, je considère que la partie précédente sur les piles a été acquise et entièrement comprise, je ne donnerai donc cette fois-ci pas de schéma explicatif, car le principe est similaire.</p></aside><h3 id="r-1113896" data-claire-element-id="1117311">La structure de la file</h3><p id="r-1113893" data-claire-element-id="1117308">Comme pour l'étude des piles, nous allons étudier la structure qui constituera notre file. Identiquement aux piles, cette structure sera basée sur les listes chaînées. Cependant, cette fois-ci, on ne pointera plus sur le sommet, mais sur la base de la file. Voici donc la structure :</p><pre id="r-1113894" data-claire-element-id="1117309"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;typedef struct file\n{\n    int donnee;\n    struct file *suivant;\n} File;\n&quot;}">typedef struct file
+{
+    int donnee;
+    struct file *suivant;
+} File;
+</code></pre><p id="r-1113895" data-claire-element-id="1117310">Remarquez alors que, cette fois-ci, nous utilisons un pointeur vers l'élément suivant et non plus vers l'élément précédent. Cela s'explique par le fait que nous pointons à la base de la file, c'est-à-dire sur le premier élément de la file.<br> Lors de l'ajout d'un élément, celui-ci se fera en fin de liste. Le retrait d'un élément se fera en début de liste.</p><h3 id="r-1113928" data-claire-element-id="1117343">Ajout d'un élément</h3><p id="r-1113897" data-claire-element-id="1117312">Dans un premier temps, voyons comment ajouter un élément à une file. Comme dit ci-dessus, l'ajout d'un élément dans une file se fera à la fin de la file. Pour cela, nous allons réaliser une fonction file_enqueue dont voici le prototype :</p><pre id="r-1113898" data-claire-element-id="1117313"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void file_enqueue(File **p_file, int donnee);\n&quot;}">void file_enqueue(File **p_file, int donnee);
+</code></pre><p id="r-1113899" data-claire-element-id="1117314">Là encore, comme vous l'aurez sûrement compris, notre fonction modifiera directement notre file, d'où l'intérêt des deux **.<br> L'ajout d'un élément dans une file est un peu plus complexe que l'ajout d'un élément dans une pile. En effet, dans le cas où la file n'est pas vide, il faudra d'abord la parcourir entièrement pour pouvoir ajouter notre élément à la fin. Si vous avez une idée du principe, je vous encourage à essayer de coder cette fonction et celles qui suivront tous seuls, cela vous obligera à réfléchir un minimum. <img alt=";)" class="smilies js-smiley" src="./Les piles et les files_files/clin.png"> <br> Voici l'algorithme de notre fonction :</p><pre id="r-1113900" data-claire-element-id="1117315"><code>1.&nbsp;On&nbsp;crée&nbsp;un&nbsp;nouvel&nbsp;élément&nbsp;de&nbsp;type&nbsp;File.
+
+2.&nbsp;On&nbsp;vérifie&nbsp;que&nbsp;le&nbsp;nouvel&nbsp;élément&nbsp;a&nbsp;bien&nbsp;été&nbsp;créé.
+
+3.&nbsp;On&nbsp;fait&nbsp;pointer&nbsp;cet&nbsp;élément&nbsp;vers&nbsp;NULL.
+
+4.&nbsp;On&nbsp;assigne&nbsp;à&nbsp;la&nbsp;donnée&nbsp;de&nbsp;cet&nbsp;élément&nbsp;la&nbsp;donnée&nbsp;que&nbsp;l'on&nbsp;veut&nbsp;ajouter.
+
+5.&nbsp;Si&nbsp;la&nbsp;file&nbsp;est&nbsp;vide,&nbsp;alors&nbsp;on&nbsp;fait&nbsp;pointer&nbsp;la&nbsp;file&nbsp;vers&nbsp;l'élément&nbsp;que&nbsp;l'on&nbsp;vient&nbsp;de&nbsp;créer.
+
+6.&nbsp;Sinon,&nbsp;on&nbsp;crée&nbsp;un&nbsp;élément&nbsp;temporaire&nbsp;de&nbsp;type&nbsp;File&nbsp;pointant&nbsp;vers&nbsp;notre&nbsp;file.
+
+7.&nbsp;On&nbsp;parcourt&nbsp;entièrement&nbsp;la&nbsp;file.
+
+8.&nbsp;On&nbsp;fait&nbsp;pointer&nbsp;l'élément&nbsp;temporaire&nbsp;vers&nbsp;le&nbsp;nouvel&nbsp;élément&nbsp;créé.</code></pre><p id="r-1113901" data-claire-element-id="1117316">Vous voyez donc qu'il y a quelques étapes en plus par rapport aux piles. <br> Passons maintenant à l'implémentation.</p><h4 id="r-1113904" data-claire-element-id="1117319">1. On crée un nouvel élément de type File</h4><pre id="r-1113902" data-claire-element-id="1117317"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;File *p_nouveau = malloc(sizeof *p_nouveau);\n&quot;}">File *p_nouveau = malloc(sizeof *p_nouveau);
+</code></pre><p id="r-1113903" data-claire-element-id="1117318">Inutile de vous réexpliquer cette étape, il s'agit du même principe que pour les piles expliqué plus haut.</p><h4 id="r-1113907" data-claire-element-id="1117322">2. On vérifie que le nouvel élément a bien été créé</h4><pre id="r-1113905" data-claire-element-id="1117320"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;if (p_nouveau != NULL)\n{\n}\n&quot;}">if (p_nouveau != NULL)
+{
+}
+</code></pre><p id="r-1113906" data-claire-element-id="1117321">On pense toujours à vérifier le retour de malloc.</p><h4 id="r-1113910" data-claire-element-id="1117325">3. On fait pointer cet élément vers NULL</h4><pre id="r-1113908" data-claire-element-id="1117323"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;p_nouveau-&gt;suivant = NULL;\n&quot;}">p_nouveau-&gt;suivant = NULL;
+</code></pre><p id="r-1113909" data-claire-element-id="1117324">L'élément sera ajouté en fin de liste, il faut donc le faire pointer vers NULL.</p><h4 id="r-1113913" data-claire-element-id="1117328">4. On assigne à la donnée de cet élément la donnée que l'on veut ajouter</h4><pre id="r-1113911" data-claire-element-id="1117326"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;p_nouveau-&gt;donnee = donnee;\n&quot;}">p_nouveau-&gt;donnee = donnee;
+</code></pre><p id="r-1113912" data-claire-element-id="1117327">Inutile de commenter cette étape, je pense que vous l'avez comprise.</p><h4 id="r-1113916" data-claire-element-id="1117331">5. Si la file est vide, alors on fait pointer la file vers l'élément que l'on vient de créer</h4><pre id="r-1113914" data-claire-element-id="1117329"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;if (*p_file == NULL)\n{\n    *p_file = p_nouveau;\n}\n&quot;}">if (*p_file == NULL)
+{
+    *p_file = p_nouveau;
+}
+</code></pre><p id="r-1113915" data-claire-element-id="1117330">Notre file devra pointer vers le premier élément. Lors de l'ajout, si celle-ci est vide, il faut donc la faire pointer vers l'élément que l'on vient de créer de manière à ce qu'elle pointe vers le début de la liste, c'est-à-dire vers le premier élément.</p><h4 id="r-1113919" data-claire-element-id="1117334">6. Sinon, on crée un élément temporaire de type File pointant vers notre file</h4><pre id="r-1113917" data-claire-element-id="1117332"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;else\n{\n    File *p_tmp = *p_file;\n&quot;}">else
+{
+    File *p_tmp = *p_file;
+</code></pre><p id="r-1113918" data-claire-element-id="1117333">Pour pouvoir parcourir entièrement la liste, on crée un élément temporaire étant le début de la file.<br> N.B. : le <em>else</em> n'est pas refermé car des instructions suivront.</p><h4 id="r-1113922" data-claire-element-id="1117337">7. On parcourt entièrement la file</h4><pre id="r-1113920" data-claire-element-id="1117335"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;while (p_tmp-&gt;suivant != NULL)\n{\n    p_tmp = p_tmp-&gt;suivant;\n}\n&quot;}">while (p_tmp-&gt;suivant != NULL)
+{
+    p_tmp = p_tmp-&gt;suivant;
+}
+</code></pre><p id="r-1113921" data-claire-element-id="1117336">Afin que l'élément soit ajouté en fin de la liste, nous nous devons de la parcourir entièrement pour arriver à la fin. De ce fait, nous utilisons une boucle while.</p><h4 id="r-1113927" data-claire-element-id="1117342">8. On fait pointer l'élément temporaire vers le nouvel élément créé</h4><pre id="r-1113923" data-claire-element-id="1117338"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;p_tmp-&gt;suivant = p_nouveau;\n}\n&quot;}">p_tmp-&gt;suivant = p_nouveau;
+}
+</code></pre><p id="r-1113924" data-claire-element-id="1117339">Grâce à cette étape, nous rattachons l'élément créé à la liste. L'élément se situe alors à la fin de la liste.<br> N.B. : l'accolade fermante « } » est la fermeture du <em>else</em> précédemment ouvert.</p><p id="r-1113925" data-claire-element-id="1117340">Voici donc notre fonction complète :</p><pre id="r-1113926" data-claire-element-id="1117341"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void file_enqueue(File **p_file, int donnee)\n{\n    File *p_nouveau = malloc(sizeof *p_nouveau);\n    if (p_nouveau != NULL)\n    {\n        p_nouveau-&gt;suivant = NULL;\n        p_nouveau-&gt;donnee = donnee;\n        if (*p_file == NULL)\n        {\n            *p_file = p_nouveau;\n        }\n        else\n        {\n            File *p_tmp = *p_file;\n            while (p_tmp-&gt;suivant != NULL)\n            {\n                p_tmp = p_tmp-&gt;suivant;\n            }\n            p_tmp-&gt;suivant = p_nouveau;\n        }\n    }\n}\n&quot;}">void file_enqueue(File **p_file, int donnee)
+{
+    File *p_nouveau = malloc(sizeof *p_nouveau);
+    if (p_nouveau != NULL)
+    {
+        p_nouveau-&gt;suivant = NULL;
+        p_nouveau-&gt;donnee = donnee;
+        if (*p_file == NULL)
+        {
+            *p_file = p_nouveau;
+        }
+        else
+        {
+            File *p_tmp = *p_file;
+            while (p_tmp-&gt;suivant != NULL)
+            {
+                p_tmp = p_tmp-&gt;suivant;
+            }
+            p_tmp-&gt;suivant = p_nouveau;
+        }
+    }
+}
+</code></pre><h3 id="r-1113933" data-claire-element-id="1117348">Retrait d'un élément</h3><p id="r-1113929" data-claire-element-id="1117344">Tout comme les piles, nous aurons aussi besoin d'une fonction permettant d'enlever un élément de la file. L'élément qui sera enlevé sera le premier élément de la file. Le prototype de la fonction nous permettant de réaliser cette action est le suivant :</p><pre id="r-1113930" data-claire-element-id="1117345"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int file_dequeue(File **p_file);\n&quot;}">int file_dequeue(File **p_file);
+</code></pre><p id="r-1113931" data-claire-element-id="1117346">À partir de maintenant, je ne vais plus vous détailler l'algorithme complet et toutes les étapes de l'implémentation. Je considère qu'après toutes les fonctions que nous venons de réaliser ensemble, vous êtes capables de réfléchir au fonctionnement des fonctions qui vont suivre. C'est pour cela que je vais vous donner directement le code commenté :</p><pre id="r-1113932" data-claire-element-id="1117347"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int file_dequeue(File **p_file)\n{\n    int ret = -1;\n    /* On teste si la file n&#39;est pas vide. */\n    if (*p_file != NULL)\n    {\n        /* Création d&#39;un élément temporaire pointant vers le deuxième élément de la file. */\n        File *p_tmp = (*p_file)-&gt;suivant;\n        /* Valeur à retourner */\n        ret = (*p_file)-&gt;donnee;\n        /* Effacement du premier élément. */\n        free(*p_file), *p_file = NULL;\n        /* On fait pointer la file vers le deuxième élément. */\n        *p_file = p_tmp;\n    }\n    return ret;\n}\n&quot;}">int file_dequeue(File **p_file)
+{
+    int ret = -1;
+    /* On teste si la file n'est pas vide. */
+    if (*p_file != NULL)
+    {
+        /* Création d'un élément temporaire pointant vers le deuxième élément de la file. */
+        File *p_tmp = (*p_file)-&gt;suivant;
+        /* Valeur à retourner */
+        ret = (*p_file)-&gt;donnee;
+        /* Effacement du premier élément. */
+        free(*p_file), *p_file = NULL;
+        /* On fait pointer la file vers le deuxième élément. */
+        *p_file = p_tmp;
+    }
+    return ret;
+}
+</code></pre><h3 id="r-1113936" data-claire-element-id="1117351">Vidage de la file</h3><p id="r-1113934" data-claire-element-id="1117349">Pour cette fonction, nous allons, à l'instar des piles, enlever chaque élément de la file un par un tant que la file n'est pas vide. Je vous conseille d'essayer de faire cette fonction tous seuls. Si vous bloquez, inspirez-vous du modèle effectué pour les piles. Voici le code :</p><pre id="r-1113935" data-claire-element-id="1117350"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;void file_clear(File **p_file)\n{\n    /* Tant que la file n&#39;est pas vide. */\n    while (*p_file != NULL)\n    {\n        /* On enlève l&#39;élément courant. */\n        file_dequeue(p_file);\n    }\n}\n&quot;}">void file_clear(File **p_file)
+{
+    /* Tant que la file n'est pas vide. */
+    while (*p_file != NULL)
+    {
+        /* On enlève l'élément courant. */
+        file_dequeue(p_file);
+    }
+}
+</code></pre><h3 id="r-1113944" data-claire-element-id="1117359">Exercice</h3><h4 id="r-1113938" data-claire-element-id="1117353">Énoncé</h4><p id="r-1113937" data-claire-element-id="1117352">Afin de terminer ce tutoriel, je vous repropose un petit exercice. Vous vous souvenez de la fonction pile_peek ? Eh bien le but de cet exercice est cette fois-ci de faire une fonction file_qeek retournant la valeur du premier élément de la file sans l'enlever de la liste. Le principe est rigoureusement le même que pour les piles.</p><h4 id="r-1113943" data-claire-element-id="1117358">Solution</h4><p id="r-1113939" data-claire-element-id="1117354">Normalement, cet exercice n'a pas dû vous poser de problème, car il suffisait de reprendre le principe abordé avec les piles. Voici le code corrigé :</p><p id="r-1113940" data-claire-element-id="1117355"></p><pre id="r-1113941" data-claire-element-id="1117356"><code data-claire-semantic="c" data-code="{&quot;language&quot;:&quot;c&quot;,&quot;source&quot;:&quot;int file_qeek(File *p_file)\n{\n    int ret = -1;\n    if (p_file != NULL)\n    {\n        ret = p_file-&gt;donnee;\n    }\n    return ret;\n}\n&quot;}">int file_qeek(File *p_file)
+{
+    int ret = -1;
+    if (p_file != NULL)
+    {
+        ret = p_file-&gt;donnee;
+    }
+    return ret;
+}
+</code></pre><p id="r-1113942" data-claire-element-id="1117357">Nous voici donc arrivés au terme de ce tutoriel. J'espère que celui-ci vous a permis d'avancer un peu plus dans l'apprentissage du langage C en découvrant d'autres structures de données que les tableaux. Retenez que les piles et les files sont un très bon moyen pour stocker des données dont on ne connaît le nombre à l'avance.</p>
+<div class="js-courseSelementActions sideActions">
+<ul class="sideActions__container">
+<li>
+<a class="sideActions__item  js-courseElementActions-copyUrl  js-tooltip" href="https://openclassrooms.com/courses/les-piles-et-les-files-4#" data-tooltip="Copy the link" data-tooltip-done="Link copied!">
+#
+</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-view-restriction_popin_title" class="popin popin--illustrated  js-popin" id="popin-view-restriction">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__illustrationWrapper">
+<div class="popin__illustration illustration--balloon"></div>
+</div>
+<div class="popin__mainContainer">
+<h3 id="popin-view-restriction_popin_title" class="popin__title  js-popin-title">Wow!</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+We're happy to see that you're enjoying our courses (already 5 pages viewed today)! You can keep checking out our courses by becoming a member of the OpenClassrooms community. It's free!
+</p>
+<p>
+You will also be able to keep track of your course progress, practice on exercises, and chat with other members.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<span class="u--inlineBlock">
+<a class="button button--primary " href="https://openclassrooms.com/register">Register</a>
+</span>
+<span class="u--inlineBlock">
+<a class="button button " href="https://openclassrooms.com/login">Sign in</a>
+</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</div>
+<div id="popin-not-certifying-yet_806886" class="popin" data-popin-title="No certificate of achievement yet at the end of this course
+                            &lt;a href=&#39;/premium&#39;&gt;&lt;i class=&#39;icon-star&#39;&gt;&lt;/i&gt; Become Premium&lt;/a&gt;
+                    ">
+<img alt="Example of certificate of achievement" src="./Les piles et les files_files/certif.jpg">
+</div>
+<div id="popin-not-certifying-yet_960083" class="popin" data-popin-title="No certificate of achievement yet at the end of this course
+                            &lt;a href=&#39;/premium&#39;&gt;&lt;i class=&#39;icon-star&#39;&gt;&lt;/i&gt; Become Premium&lt;/a&gt;
+                    ">
+<img alt="Example of certificate of achievement" src="./Les piles et les files_files/certif.jpg">
+</div>
+</main>
+<aside class="contentWithSidebar__sidebar  js-contentWithSidebar-slidingElement">
+<nav>
+<div id="tab-courseMenu" class="col-nav__inner js-sidebar-inner">
+<div class="col-nav__block col-nav__block--premium">
+<strong class="not-certifying col-nav__notCertifying">No certificate of achievement yet at the end of this course</strong>
+</div>
+<div class="col-nav__block col-nav__block--institution">
+<h2>Created by</h2>
+<a href="https://openclassrooms.com/partners/openclassrooms" target="_blank">
+<span data-image-cdn-attr-src="//sdz-upload.s3.amazonaws.com/prod/partners/img/logo_logo-oc.png" data-image-cdn-attr-alt="logo OpenClassrooms" data-image-cdn-height="85" data-image-cdn-attr-class="col-nav__institutionLogo"><img data-reactroot="" srcset="https://oc-upload.imgix.net/prod/partners/img/logo_logo-oc.png?auto=compress&amp;h=85&amp;dpr=1 1x,https://oc-upload.imgix.net/prod/partners/img/logo_logo-oc.png?auto=compress&amp;h=85&amp;dpr=2 2x" src="./Les piles et les files_files/logo_logo-oc.png" alt="logo OpenClassrooms" class="col-nav__institutionLogo"></span>
+<p class="col-nav__block--institutionDescription">
+OpenClassrooms, 1ère plateforme <span class="nowrap">e-Education<span> en Europe
+</span></span></p>
+</a>
+</div>
+<div class="socialNetwork col-nav__block">
+<ul class="socialButtons  js-socialButtons" data-options="
+                title: &#39;Check out the course &quot;Les piles et les files&quot; on OpenClassrooms&#39;,
+        mailTitle: &#39;Course &quot;Les piles et les files&quot; on OpenClassrooms&#39;,
+        mailContent: &#39;Check out the course &quot;Les piles et les files&quot; on OpenClassrooms&#39;" data-widget="socialButtons">
+<li>
+<a class="roundIcon  roundIcon--twitter addthis_button_twitter  js-socialButtons-btn js-tooltip" data-tooltip="Share on Twitter " addthis:url="https://openclassrooms.com/courses/les-piles-et-les-files-4?lang=en" addthis:title="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms">
+<i class="roundIcon__icon  icon-twitter"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--facebook  addthis_button_facebook  js-socialButtons-btn js-tooltip" data-tooltip="Share on Facebook" addthis:url="https://openclassrooms.com/courses/les-piles-et-les-files-4?lang=en" addthis:title="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms">
+<i class="roundIcon__icon  icon-facebook"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--googlePlus  addthis_button_google_plusone_share  js-socialButtons-btn js-tooltip" data-tooltip="Share on Google+" addthis:url="https://openclassrooms.com/courses/les-piles-et-les-files-4?lang=en" addthis:title="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms">
+<i class="roundIcon__icon  icon-google"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  addthis_button_email  js-socialButtons-btn  js-socialButtons-email js-tooltip" data-tooltip="Share via email" addthis:url="https://openclassrooms.com/courses/les-piles-et-les-files-4?lang=en" addthis:ui_email_title="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms" addthis:ui_email_note="Check out the course &quot;Les piles et les files&quot; on OpenClassrooms" addthis:title="Course &quot;Les piles et les files&quot; on OpenClassrooms">
+<i class="roundIcon__icon  icon-letter"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</aside>
+</div>
+</div>
+<footer class="alt-section">
+<div class="centered">
+<div class="row">
+<div class="col8 course-bottom__category">
+<h2 class="highlighted">
+The author
+</h2>
+<div>
+<a itemprop="author" itemscope="" itemtype="http://schema.org/Person" href="https://openclassrooms.com/membres/octal-58887" class="no-underlined">
+<div class="course-bottom__text-illustrated">
+<span data-author="Mathieu Stefani" data-image-cdn-background-image="//user.oc-static.com/files/352001_353000/352879.jpg" style="background-image: url(https://oc-user.imgix.net/files/352001_353000/352879.jpg?auto=compress);"></span>
+<h4 itemprop="name">Mathieu Stefani</h4>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+<footer class="footer">
+<div class="centered">
+<div class="row">
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;" data-widget="foldable">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+OpenClassrooms
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="https://openclassrooms.com/about-us" class="footer__link">Who we are</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/how-does-it-work" class="footer__link">How our courses work</a>
+</li>
+<li>
+<a href="http://jobs.openclassrooms.com/" target="_blank" class="footer__link">Jobs</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/courses/les-piles-et-les-files-4#" class="js-zendesk-show footer__link">Contact us</a>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+Partnerships
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="https://openclassrooms.com/business" class="footer__link">Business</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/universities" class="footer__link">Universities and schools</a>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+Learn more
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<strong>
+<a href="https://openclassrooms.com/terms-conditions" class="footer__link">
+Terms of Use
+</a>
+</strong>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+Follow us
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="http://blog.openclassrooms.com/en" class="footer__link">OpenClassrooms blog</a>
+</li>
+<li>
+<ul class="footer__socialNetwork">
+<li>
+<a href="https://www.facebook.com/openclassrooms" target="_blank" class="roundIcon roundIcon--facebook footer__socialButtons">
+<span class="hidden">Facebook</span>
+<i class="icon-facebook roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://twitter.com/openclassrooms" target="_blank" class="roundIcon roundIcon--twitter footer__socialButtons">
+<span class="hidden">Twitter</span>
+<i class="icon-twitter roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://plus.google.com/+OpenClassrooms/posts" target="_blank" class="roundIcon roundIcon--youtube footer__socialButtons">
+<span class="hidden">Google Plus</span>
+<i class="icon-google roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://instagram.com/openclassrooms" target="_blank" class="roundIcon roundIcon--instagram footer__socialButtons">
+<span class="hidden">Instagram</span>
+<i class="icon-instagram roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://www.youtube.com/user/TheOpenClassrooms" target="_blank" class="roundIcon roundIcon--googlePlus footer__socialButtons">
+<span class="hidden">Youtube</span>
+<i class="icon-youtube roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/company/openclassrooms" target="_blank" class="roundIcon roundIcon--linkedin footer__socialButtons">
+<span class="hidden">Linkedin</span>
+<i class="icon-linkedin roundIcon__icon"></i>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="text-right u--positionRelative">
+<hr>
+<div class="footer__onlineStatus" id="react_conversation_onlineStatus"><!-- react-empty: 1 --></div>
+<ul class="no-decoration inline">
+<li>
+<a class="footer__link" href="https://openclassrooms.com/change-locale/es/-IX60llqyUntL2gKoka85MH2S9n4t-02DN35DsMO-gc">Español</a>
+</li>
+<li>
+<a class="footer__link" href="https://openclassrooms.com/change-locale/fr/-IX60llqyUntL2gKoka85MH2S9n4t-02DN35DsMO-gc">Français</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script src="./Les piles et les files_files/polyfill.min.js"></script>
+ 
+<script type="text/javascript" src="./Les piles et les files_files/vendors-6d7c3d50.js"></script> <script type="text/javascript" src="./Les piles et les files_files/common-3ae9e6d3.js"></script>
+<script type="text/javascript" src="./Les piles et les files_files/courseView-4bbd7d87.js"></script>
+ 
+<script type="text/javascript">
+    window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+    window.analytics.load('mou95e6tdn');
+</script>
+ 
+<script type="text/javascript">
+            
+            if (App.modules) {
+                App.modules.startAll();
+            }
+        </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"90dc06697a","applicationID":"20302107","transactionName":"NANaYkJXC0ICAhdYVw1Je0NDQgpcTA4AblsPB1FEVWkGXhYTEFRnAAlNRENTOlIMFBFCXTwQUVNH","queueTime":0,"applicationTime":93,"atts":"GERZFApNGEw=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+<div><!-- react-empty: 1 --></div></body></html>

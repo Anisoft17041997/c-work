@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1480752666 source:d:\c-works\les piles\main.c
+	"stack.h"
+
+1482593501 d:\c-works\les piles\stack.h
+	<stdio.h>
+	<stdlib.h>
+
+1482596541 source:d:\c-works\les piles\stack.c
+	"stack.h"
+

@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1483536336 source:d:\c-works\poly\lecture_polynome.c
+	"type_poly.h"
+	"poly.h"
+	"lecture_polynome.h"
+
+1483446748 d:\c-works\poly\type_poly.h
+	<stdio.h>
+	<stdlib.h>
+
+1484144138 d:\c-works\poly\poly.h
+	"type_poly.h"
+
+1482947079 d:\c-works\poly\lecture_polynome.h
+	"type_poly.h"
+	"poly.h"
+
+1484374986 source:d:\c-works\poly\listes.c
+	"type_poly.h"
+
+1484375096 source:d:\c-works\poly\main.c
+	"poly.h"
+	"type_poly.h"
+	"lecture_polynome.h"
+

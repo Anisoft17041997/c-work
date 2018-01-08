@@ -1,0 +1,40 @@
+/*Name  : TP.c
+Purpose : Gérer les inscriptions des aspirants pour le compte du stage dans l'établissement Lome La Langue.
+Authors : ATSOU Sélom Kodjo
+          AGBONON
+          GAUTIER
+
+Dates   : 29/07/2016, 31/07/2016
+*/
+
+
+#include "prototypes.h" //Fichier des prototypes de fonction
+/*Declarations globales*/
+char *NomFichier ="Les aspirants au stage a 3L Annee 2016.txt";
+
+int main()
+{
+    char rep;
+    /*Couleurs*/
+    system("color 1E");
+    /*Titre*/
+    do{
+    puts("*===============================*\n"
+         "* GESTIONNAIRE DES INSCRIPTIONS *\n"
+         "*     POUR LE STAGE A 3L        *\n"
+         "*===============================*\n");
+    /*Declarations des variables locales*/
+    //Pointeur de fichier
+    int Reponse; //Choix de l'utilisateur
+    /*Affichage du menu */
+    Menu();
+    Reponse =Choix();
+    ActionReponse(Reponse,NomFichier);
+    /*Continution*/
+        printf("\nVoulez-vous poursuivre? Oui/Non ");
+        rep= toupper(getch());
+    }
+    while(rep == 'O');
+    printf("\n\n****MERCI D'AVOIR UTILISE CE PROGRAMME****\n\n");
+    return 0;
+}

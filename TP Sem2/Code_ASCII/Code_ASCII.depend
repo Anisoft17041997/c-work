@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1472460200 source:d:\c-works\tp sem2\code_ascii\ascii.c
+	<stdio.h>
+	<stdlib.h>
+

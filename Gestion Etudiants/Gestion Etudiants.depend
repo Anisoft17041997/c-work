@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1475221598 source:d:\c-works\gestion etudiants\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1474877246 source:d:\c-works\tp sem2\chiffrement-exo\main.cpp
+	<iostream>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+

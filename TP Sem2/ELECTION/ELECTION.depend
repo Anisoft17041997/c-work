@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1466032873 source:c:\users\agbeya\desktop\c_application\applications true\election\main.c
+	<stdio.h>
+	<stdlib.h>
+

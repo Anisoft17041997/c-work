@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1468431311 source:d:\c-works\tp sem2\jour de naissance\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1472199987 source:d:\c-works\tp sem2\les accents\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<conio.h>
+

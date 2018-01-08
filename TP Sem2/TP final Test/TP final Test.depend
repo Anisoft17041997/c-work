@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1470117353 source:d:\c-works\tp sem2\tp final test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

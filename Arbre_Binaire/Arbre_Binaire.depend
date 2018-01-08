@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1485079996 source:d:\c-works\arbre_binaire\main.c
+	"tree.h"
+
+1485080165 d:\c-works\arbre_binaire\tree.h
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1461788693 source:d:\c-works\tp sem2\dist\dist.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

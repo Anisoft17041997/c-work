@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1466695918 source:d:\c-works\tp sem2\conv_string\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

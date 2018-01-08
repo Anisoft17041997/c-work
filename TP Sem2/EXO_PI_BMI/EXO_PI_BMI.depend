@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1464700808 source:d:\c-works\tp sem2\exo_pi_bmi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1466523893 source:d:\c-works\tp sem2\exo_pi_bmi\lorenz's_formula.c
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+

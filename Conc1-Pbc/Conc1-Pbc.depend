@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1486216213 source:d:\c-works\conc1-pbc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1486130924 source:d:\c-works\conc1-pbc\temp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

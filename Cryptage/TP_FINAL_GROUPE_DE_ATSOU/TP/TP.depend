@@ -1,0 +1,89 @@
+# depslib dependency file v1.0
+1470348562 source:d:\tp\tp.c
+	"prototypes.h"
+
+1470415760 d:\tp\prototypes.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+
+1470049527 source:d:\tp\fonctions.c
+	"prototypes.h"
+
+1470050983 source:d:\tp\creerfichier.c
+	"prototypes.h"
+
+1470348333 source:d:\tp\menu.c
+	"prototypes.h"
+
+1470415491 source:d:\tp\gestion.c
+
+1470326966 source:d:\tp\misajour.c
+	"prototypes.h"
+
+1470415720 source:d:\tp\initialisation.c
+	"prototypes.h"
+
+1470373449 source:d:\tp\saisienote.c
+	"prototypes.h"
+
+1470325171 source:c:\users\agbeya\desktop\c_application\applications true\tp\gestion.c
+	"prototypes.h"
+
+1470325232 c:\users\agbeya\desktop\c_application\applications true\tp\prototypes.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+
+1470313015 source:c:\users\agbeya\desktop\c_application\applications true\tp\initialisation.c
+	"prototypes.h"
+
+1470313453 source:c:\users\agbeya\desktop\c_application\applications true\tp\menu.c
+	"prototypes.h"
+
+1470320746 source:c:\users\agbeya\desktop\c_application\applications true\tp\misajour.c
+	"prototypes.h"
+
+1470315662 source:c:\users\agbeya\desktop\c_application\applications true\tp\saisienote.c
+	"prototypes.h"
+
+1470315366 source:c:\users\agbeya\desktop\c_application\applications true\tp\tp.c
+	"prototypes.h"
+
+1470325193 source:c:\users\agbeya\desktop\c_application\applications true\tp\retientcandidats.c
+	"prototypes.h"
+
+1470321594 source:d:\tp\retientcandidats.c
+	"prototypes.h"
+
+1470415491 source:d:\tp_final_groupe_de_atsou\tp\gestion.c
+
+1470415720 source:d:\tp_final_groupe_de_atsou\tp\initialisation.c
+	"prototypes.h"
+
+1470415760 d:\tp_final_groupe_de_atsou\tp\prototypes.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+
+1470348333 source:d:\tp_final_groupe_de_atsou\tp\menu.c
+	"prototypes.h"
+
+1470326966 source:d:\tp_final_groupe_de_atsou\tp\misajour.c
+	"prototypes.h"
+
+1470321594 source:d:\tp_final_groupe_de_atsou\tp\retientcandidats.c
+	"prototypes.h"
+
+1470373449 source:d:\tp_final_groupe_de_atsou\tp\saisienote.c
+	"prototypes.h"
+

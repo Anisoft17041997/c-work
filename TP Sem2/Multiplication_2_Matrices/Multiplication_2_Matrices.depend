@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1462767210 source:d:\c-works\tp sem2\multiplication_2_matrices\matrice.c
+	<stdio.h>
+	<stdlib.h>
+

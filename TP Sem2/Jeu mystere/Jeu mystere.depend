@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1464708874 source:d:\c-works\tp sem2\jeu mystere\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<ctype.h>
+

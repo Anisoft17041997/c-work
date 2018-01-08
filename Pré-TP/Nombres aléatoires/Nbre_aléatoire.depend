@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1471951094 source:d:\c-works\pré-tp\nbre_aléatoire\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

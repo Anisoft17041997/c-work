@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1483955874 source:d:\c-works\poly_deb_fin\listes.c
+	"type_poly.h"
+
+1483955454 d:\c-works\poly_deb_fin\type_poly.h
+	<stdio.h>
+	<stdlib.h>
+

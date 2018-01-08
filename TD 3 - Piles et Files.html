@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0118)https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/INF421bX05-td_3-1.php#UPLOAD_LOGIN_FORM -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>TD 3 - Piles et Files</title>
+  
+  <link href="./TD 3 - Piles et Files_files/inf421b.css" rel="stylesheet" type="text/css">
+<!--
+Sujet de Christoph Durr (OCTOBRE 2006)
+-->
+</head>
+<body>
+<div class="titre">TD 3:  Piles et Files</div>
+<div class="sousTitre"> par Christoph Dürr</div>
+
+<p>
+
+</p><p><a name="UPLOAD_LOGIN_FORM"></a></p>
+<form action="./TD 3 - Piles et Files_files/TD 3 - Piles et Files.html" method="post" class="EditForm">
+<p>
+<input type="hidden" name="Auth_Action" value="Connect">
+<strong>&nbsp;Login&nbsp;:</strong>
+<input name="Auth_Login" type="text" value="" size="64" maxlength="64" style="background: silver; border: none;">
+<strong>&nbsp;Mot de passe&nbsp;:</strong>
+<input name="Auth_Password" type="password" value="" size="20" maxlength="80" style="background: silver; border: none;">
+<input type="submit" value="Connecter" style="border-radius: 10px; background: #e0e0e0; text-decoration: underline; border: none;">
+</p>
+</form>
+<p style="color:#FF0000">
+<strong>Le format de l'identifiant ou l'identifiant lui-même est incorrect.</strong>
+</p>
+
+
+<h1>1.&nbsp;Vérificateur de fichier XML</h1>
+<p>Le but de cet exercice est d'apprendre à manipuler les
+piles. Pour cela on va écrire un programme qui vérifie si
+un fichier XML est bien parenthésé. --- Encore&nbsp;?
+Oui c'est un rappel sur le cours inf311. --- Pour ce TD nous adoptons
+une définition simplifiée par rapport à la <a href="http://www.w3.org/TR/2006/REC-xml-20060816/">définition
+officielle</a>.
+Un fichier XML est un
+fichier texte qui contient des balises (<em>tag</em> en anglais). Les balises sont
+délimitées par des chevrons ('&lt;' et '&gt;')
+et sont de deux types&nbsp;:&nbsp;</p>
+<ol>
+  <li>Les <span style="font-style: italic;">balises ouvrantes</span>
+commencent par le nom de la balise suivis éventuellement
+d'attributs (exemple <code>&lt;a
+href="http://www.polytechnique.fr"&gt;</code>),&nbsp;</li>
+  <li>les <span style="font-style: italic;">balises fermantes</span>
+commencent par un slash suivi du nom de la balise (exemple
+&lt;/a&gt;)&nbsp;</li>
+</ol>
+<p>Voici une définition récursive d'un <emph>document
+XML
+bien parenthésé</emph> : Soit c'est un document
+sans balises. Soit c'est un&nbsp;document obtenu en concatenant un
+document sans balises, une balise ouvrante, un document XML bien
+parenthésé, une balise fermante du même nom, et
+un document XML bien parenthésé.
+</p>
+<p>Par exemple les documents
+<code>&lt;a&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;&lt;b&gt;&lt;/b&gt;</code>
+ou
+<code>1&lt;b&gt;&lt;a&gt;&lt;/a&gt;&lt;a&gt;2&lt;/a&gt;&lt;/b&gt;</code>
+sont bien paranthèsés alors que les documents
+<code>&lt;a&gt;&lt;/b&gt;</code> ou <code>&lt;/c&gt;</code> ne le
+sont pas. </p>
+<table align="right">
+  <tbody>
+    <tr>
+      <td bgcolor="yellow" width="300">Règle de Douglas
+Hofstädter: les
+choses durent toujours
+plus longtemps que
+prévu, même en tenant compte de la règle de Douglas
+Hofstädter. </td>
+    </tr>
+    <tr>
+      <td><em>Fig 1: une autre définition récursive</em> </td>
+    </tr>
+  </tbody>
+</table>
+<p>Pour vous épargner les difficultés des
+entrées/sorties sur des fichiers, nous vous fournissons une
+classe <code>XmlParser</code>. Son constructeur prend en
+paramètre un nom de fichier. Elle ouvre alors le fichier et le
+découpe alternativement en balises et en texte entre les
+balises. Vous pouvez alors appeler successivement sa méthode
+<code>nextString()</code> qui retournera une par une les chaînes
+résultant de la découpe, puis finira par retourner null
+quand la fin du fichier est atteinte. Cette classe contient aussi des
+tests <code>boolean isTag(String s)</code>, <code>boolean
+isOpeningTag(String s)</code>,  <code>boolean
+isClosingTag(String s)</code> qui font exactement ce que vous pensez
+qu'elles font et une méthode pour extraire le nom d'une
+balise <code>String tagName(String tag)</code>. </p>
+
+<h2>Question 1.1 - XmlParser</h2>
+<ul>
+  <li>Téléchargez <a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/fichiers_xml.tar">des
+fichiers XML</a> et la classe <a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/XmlParser.java">XmlParser</a>. </li>
+</ul>
+<p>
+On va commencer par se familiariser avec la classe
+<code>XmlParser</code>.  A cet effet, la
+méthode <code>main</code> de la classe donne un exemple
+d'utilisation de ses méthodes.
+</p><pre><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String&nbsp;args</font><font color="#000000">[])&nbsp;{</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">args.length!=</font><font color="#990000">1</font><font color="#000000">)</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">Error</font><font color="#000000">(</font><font color="#2a00ff">"usage:&nbsp;java&nbsp;XmlParser&nbsp;&lt;filename&gt;"</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;XmlParser&nbsp;d'ecoupe&nbsp;le&nbsp;fichier&nbsp;en&nbsp;balises&nbsp;et&nbsp;texte&nbsp;entre&nbsp;les&nbsp;balises</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">XmlParser&nbsp;&nbsp;&nbsp;parser&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">XmlParser</font><font color="#000000">(</font><font color="#000000">args</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">])</font><font color="#000000">;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s;&nbsp;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font color="#000000">indent=</font><font color="#990000">0</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;niveau&nbsp;d'imbriquation</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;nextString&nbsp;retourne&nbsp;la&nbsp;prochaine&nbsp;cha^ine,&nbsp;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;et&nbsp;retourne&nbsp;null&nbsp;quand&nbsp;la&nbsp;fin&nbsp;du&nbsp;fichier&nbsp;est&nbsp;atteinte</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>while&nbsp;&nbsp;</b></font><font color="#000000">((</font><font color="#000000">s&nbsp;=&nbsp;parser.nextString</font><font color="#000000">())&nbsp;</font><font color="#000000">!=&nbsp;</font><font color="#7f0055"><b>null</b></font><font color="#000000">)</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">XmlParser.isTag</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">))&nbsp;{&nbsp;</font><font color="#3f7f5f">//&nbsp;aha!&nbsp;une&nbsp;balise</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">XmlParser.isClosingTag</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">))</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">indent--;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;indenter</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">i=</font><font color="#990000">0</font><font color="#000000">;&nbsp;i&lt;indent;&nbsp;i++</font><font color="#000000">)</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.print</font><font color="#000000">(</font><font color="#2a00ff">"&nbsp;&nbsp;"</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">XmlParser.isOpeningTag</font><font color="#000000">(</font><font color="#000000">s</font><font color="#000000">))</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">indent++;</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+</pre>
+Exécutez le programme <code>XmlParser</code> avec le
+fichier <code>petit.xml</code>. Vous devriez voir le résultat
+suivant.<p></p>
+<p>
+</p><pre class="output">&lt;carnet&gt;
+  &lt;note&gt;
+    &lt;titre&gt;
+    &lt;/titre&gt;
+    &lt;ligne&gt;
+    &lt;/ligne&gt;
+    &lt;ligne&gt;
+    &lt;/ligne&gt;
+  &lt;/note&gt;
+  &lt;note&gt;
+    &lt;titre&gt;
+    &lt;/titre&gt;
+    &lt;ligne&gt;
+    &lt;/ligne&gt;
+  &lt;/note&gt;
+&lt;/carnet&gt;
+</pre>
+
+
+<h2>Question 1.2 - StringList, StringStack</h2>
+<p>Vous vous doutez sûrement qu'il conviendrait d'utiliser une
+pile
+pour vérifier qu'un document XML est bien
+paranthèsé. Nous pourrions utiliser la classe <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/Stack.html">Stack</a>,
+mais pour cet exercice il est préférable que vous
+écriviez vous même une liste de chaînes.</p>
+<p>Commencez par écrire une classe <code>StringList</code>. Le
+constructeur prend en paramètre une chaîne de
+caractères <code>s</code> et une StringList <code>l</code>,
+créant ainsi une liste qui commence par <code>s</code> et
+continue par la sous-liste <code>l</code>.</p>
+<p>Puis écrivez une classe <code>StringStack</code> avec les
+méthodes <code>void push(String s)</code>, &nbsp;<code>String
+pop()</code> et <code>boolean isEmpty()</code>. Inspirez vous du <a href="http://www.enseignement.polytechnique.fr/profs/informatique/Luc.Maranget/421/poly/piles.html#pile:liste">poly</a>.
+En fait vous pouvez
+mettre les deux classes dans un même fichier <span style="font-family: monospace;">StringStack.java</span>
+pourvu que StringList ne soit pas public.
+Testez avec le code
+suivant qui devrait s'exécuter sans erreur. </p>
+<pre>    <font color="#298c52"><b>public</b></font> <font color="#298c52"><b>static</b></font> <font color="#298c52"><b>void</b></font> main(String args[]) {<br>        StringStack stack = <font color="#a52929"><b>new</b></font> StringStack();<br>        <font color="#a52929"><b>assert</b></font> stack.isEmpty();<br>        stack.push(<font color="#ff00ff">"a"</font>); stack.push(<font color="#ff00ff">"b"</font>);<br>        <font color="#a52929"><b>assert</b></font> !stack.isEmpty();<br>        <font color="#a52929"><b>assert</b></font> stack.pop().equals(<font color="#ff00ff">"b"</font>);<br>        <font color="#a52929"><b>assert</b></font> stack.pop().equals(<font color="#ff00ff">"a"</font>);<br>        <font color="#a52929"><b>assert</b></font> stack.isEmpty();<br>        System.out.println(<font color="#ff00ff">"Test r'eussi."</font>);<br>    }<br></pre>
+<p>Soit dit en passant, <code>assert</code> est une
+instruction Java bien utile qui permet de tester une condition et
+d'arrêter brutalement le programme si elle n'est pas satisfaite
+avec un message contenant la condition violée et la ligne du
+code source concernée.
+</p>
+
+<!--UPLOAD_INF421bX05-td_3#ex_1-->
+
+<h2>Question 1.3 - VerifyXml</h2>
+<p>Finalement en partant du main de la classe <code>XmlParser</code>
+écrivez la
+classe <code>VerifyXml</code> qui vérifie à l'aide de la
+pile
+créée précédemment si un fichier
+donné est
+un document XML bien paranthèsé. Prenez un moment
+pour&nbsp;réfléchir à l'algorithme utilisé.
+</p>
+<p>Testez votre programme à l'aide des fichiers XML
+donnés. Voilà le genre de résultats que vous
+devriez
+obtenir. 
+
+
+</p>
+<pre class="output">$ <span class="code shell">foreach f (fichiers_xml/*)<br>java VerifyXml $f<br>end</span><br><br>fichiers_xml/erreur1.xml:       Erreur : balise &lt;a&gt; n'est pas ferm'ee.<br>fichiers_xml/erreur2.xml:       Erreur : balise &lt;/a&gt; sans balise ouvrante correspondante.<br>fichiers_xml/erreur3.xml:       Erreur : balise &lt;/b&gt; lu, mais &lt;/a&gt; attendu.<br>fichiers_xml/erreur4.xml:       Erreur : balise &lt;/b&gt; lu, mais &lt;/c&gt; attendu.<br>fichiers_xml/erreur5.xml:       Erreur : balise &lt;/c&gt; lu, mais &lt;/b&gt; attendu.<br>fichiers_xml/experiences.xml:   Ce document XML est bien parenth'es'e.<br>fichiers_xml/graphe.gxl:        Ce document XML est bien parenth'es'e.<br>fichiers_xml/petit.xml: Ce document XML est bien parenth'es'e.<br></pre>
+
+(Si vous faites cet exercice sous MacOSX ou GNU/Linux au lieu de foreach écrivez <tt>for f in fichiers_xml/*; do java VerifyXml $f; done</tt>)
+
+<!--UPLOAD_INF421bX05-td_3#ex_2-->
+
+<h2>Question 1.4 - VerifyRecursivlyXml (optionnel)</h2>
+<ul>
+  <li>Téléchargez la classe <a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/VerifyRecursivlyXml.java">VerifyRecursivlyXml</a>. </li>
+</ul>
+<p><br>
+</p>
+<table align="right">
+  <tbody>
+    <tr>
+      <td bgcolor="yellow" width="300">Pourquoi est-ce que les
+informaticiens meurent-ils
+sous la douche&nbsp;? <br>
+Parce que sur les flacons de shampooing il y a écrit
+"<em>Appliquer sur les cheveux mouillés, rincer, puis
+recommencer.</em>". </td>
+    </tr>
+    <tr>
+      <td><em>Fig 2: pensez à la terminaison des appels
+récursifs</em> </td>
+    </tr>
+  </tbody>
+</table>
+<p>Maintenant refaisons l'exercice précédent sans
+l'utilisation de
+<code>StringStack</code> en utilisant la pile des appels de Java.
+</p>
+<p>La classe <code>VerifyRecursivlyXml</code> dotée d'une
+méthode
+récursive <code>boolean verify(XmlParser doc)</code>
+implémente un
+test récursif qui est calqué sur la définition des
+documents XML bien parenthésés. Par contre une erreur
+s'est introduite
+dans ce code.
+Vous pouvez vous en rendre
+compte en l'exécutant sur le jeu de tests fourni et en comparant
+le
+code avec la définition des
+documents XML bien parenthésés. Trouvez et
+corrigez l'erreur. Une seule ligne est à changer.</p>
+<br>
+<h1>2. Etablissement d'un&nbsp;emploi du temps&nbsp;</h1>
+<p>Le but de cet exercice est d'apprendre la manipulation des files.</p>
+<p>Khalid travaille dans un laboratoire de biologie et doit intervenir
+en début et en fin des expériences qui sont
+programmées tout au long d'une journée. Pour cela il
+reçoit un fichier XML qui décrit la liste des
+expériences à réaliser dans une journée,
+avec leur heure de début et leur nom. Le fichier est
+formaté comme dans l'exemple ci-dessous, les entrées
+sont triées par heure de début, qui est
+représentée par le nombre de minutes depuis minuit
+(exemple 615 représente 10h15).</p>
+<pre>&lt;experience&gt;<br>  &lt;debut&gt;615&lt;/debut&gt;<br>  &lt;nom&gt;crystalline D-Tyr-tRNA(Tyr) deacylase&lt;/nom&gt;<br>&lt;/experience&gt;<br>&lt;experience&gt;<br>  &lt;debut&gt;680&lt;/debut&gt;<br>  &lt;nom&gt;methionyl-tRNA transformylase&lt;/nom&gt;<br>&lt;/experience&gt;<br>&lt;experience&gt;<br>  &lt;debut&gt;720&lt;/debut&gt;<br>  &lt;nom&gt;matrix-assisted laser desorption/ionization mass spectrometry&lt;/nom&gt;<br>&lt;/experience&gt;<br></pre>
+<p>Chaque expérience dure exactement 90 minutes. Nous voulons
+fournir à Khalid une liste ordonnée des débuts et
+fins d'expériences dans le format suivant.</p>
+<pre class="output">d'ebut  10h15   crystalline D-Tyr-tRNA(Tyr) deacylase<br>d'ebut  11h20   methionyl-tRNA transformylase<br>fin     11h45   crystalline D-Tyr-tRNA(Tyr) deacylase<br>d'ebut  12h00   matrix-assisted laser desorption/ionization mass spectrometry<br>fin     12h50   methionyl-tRNA transformylase<br>fin     13h30   matrix-assisted laser desorption/ionization mass spectrometry<br></pre>
+<h2>Question 2.1 - Schedule</h2>
+<ul>
+  <li>Téléchargez la classe <a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/Experience.java">Experience</a>.
+  </li>
+</ul>
+Dans un premier temps on ne va afficher que les débuts des
+expériences. On vous fournit la classe Experience qui
+réalise l'agrégat (temps, nom). Ecrivez une classe
+<code>Schedule</code> qui lit un fichier XML&nbsp;indiquée
+ci-dessus et l'affiche de la façon suivante. Déclarez une
+variable <code>Experience
+exp</code>. Répétez les instructions suivantes
+jusqu'à ce que la fin du fichier soit atteinte.
+<ul>
+  <li> Si la chaîne retournée par <code>nextString</code>
+du parcoureur XML (<code>ParseXml</code>) est <code>&lt;debut&gt;</code>,
+mettez dans <code>exp.time</code>
+le nombre codé par la prochaine chaîne, que vous pouvez
+extraire avec <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#parseInt%28java.lang.String%29">parseInt</a>.
+  </li>
+  <li> Si la chaîne retournée par <code>nextString</code>
+est <code>&lt;nom&gt;</code>, mettez dans <code>exp.name</code>
+la prochaine chaîne. </li>
+  <li> Si la chaîne retournée par <code>nextString</code>
+est&nbsp;<code>&lt;/experience&gt;</code>,
+affichez <code>exp</code>. </li>
+</ul>
+<p>
+Veillez à ne pas appeler <code>nextString</code> lors de chacun
+des trois tests,&nbsp;sinon vous comparerez des chaînes
+différentes.
+</p>
+<p>Sur le fichier <code>experiences.xml</code> votre code devrait
+produire la sortie suivante&nbsp;:
+</p>
+<pre class="output">10h15	crystalline D-Tyr-tRNA(Tyr) deacylase<br>11h20	methionyl-tRNA transformylase<br>12h00	matrix-assisted laser desorption/ionization mass spectrometry<br></pre>
+<h2>Question 2.2 - Schedule (suite)</h2>
+<p>Pour&nbsp;entrelacer la liste des débuts et la liste des
+fins d'expériences nous allons utiliser une file, en utilisant
+la classe LinkedList fournie par la bibliothèque Java. 
+Pensez à importer <code>java.util.*</code>. On
+stockera dans la file les expériences en cours. Prenez un
+moment pour lire la documentation de la classe <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/LinkedList.html">LinkedList</a>
+pour trouver les méthodes qui permettent d'ajouter, d'enlever et
+d'accéder à la tête de file.
+</p>
+<p>Ecrivez la classe <code>Schedule</code> qui ouvre un fichier XML
+donné en paramètre puis affiche la liste des
+débuts et fins d'expériences ordonnés par heure.
+Souvenez-vous, une expérience dure exactement 90 minutes.
+Pour
+cela créez une file des expériences en cours. Pour chaque
+expérience <code>E</code> effectuez les actions suivantes.
+Commencez par ajouter <code>E</code> à la file.
+Puis tant
+que la tête de file est une expérience qui terminera avant
+le début de <code>E</code>, on l'enlève de la file et on
+l'affiche. Alors
+seulement
+on affiche le début de <code>E</code>.
+</p>
+
+<!--UPLOAD_INF421bX05-td_3#ex_3-->
+
+<h1>3. Produire l'arbre XML (optionnel)</h1>
+<p>L'exercice optionnel consiste à produire un arbre qui
+représente la structure d'un document XML. Pour cela on va
+produire un graphe dans le format standard <a href="http://www.graphviz.org/Documentation.php">DOT</a>. Dans ce
+format la première ligne contient <code>digraph {</code>
+(pour graphe dirigé) et la dernière ligne contient
+<code>}</code>. Les autres lignes sont de deux types.
+</p>
+<dl>
+  <dt> <code>1 [label=A];</code> </dt>
+  <dd>pour déclarer un sommet qui affichera "A", mais sera
+appelé "1" dans le reste du document </dd>
+  <dt><code>1-&gt;2;</code> </dt>
+  <dd>Pour déclarer un arc du sommet 1 vers 2. </dd>
+</dl>
+<p>
+Il y a de nombreux visualiseurs de graphe qui savent lire ce format,
+dont dot sur Unix. Pour visualiser le graphe produit par votre
+programme utilisez la commande Unix
+suivante :<br>
+</p><pre class="shell">java XmlTree fichiers_xml/petit.xml | dot -Tpng | xv -
+</pre>
+Si jamais dot n'est pas installé sur votre machine vous pouvez couper/coller la sortie dans cette <a href="http://www.lix.polytechnique.fr/~durr/Iut/Dot/">page</a>.<p></p>
+<p>Le graphe ainsi produit sur l'exemple petit.xml aura cette forme </p>
+<img src="./TD 3 - Piles et Files_files/graphe_petit.png" align="right" width="350">
+<pre>digraph {<br>  0 [label="carnet"];<br>  1 [label="note"];<br>  0-&gt;1;<br>  2 [label="titre"];<br>  1-&gt;2;<br>  3 [label="ligne"];<br>  1-&gt;3;<br>  4 [label="ligne"];<br>  1-&gt;4;<br>  5 [label="note"];<br>  0-&gt;5;<br>  6 [label="titre"];<br>  5-&gt;6;<br>  7 [label="ligne"];<br>  5-&gt;7;<br>}<br></pre>
+
+<!--UPLOAD_INF421bX05-td_3#ex_4-->
+
+<hr>
+<ul>
+  <li>Le corrigé : 
+(<a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/StringStack.html">StringStack</a>, 
+<a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/VerifyXml.html">VerifyXml</a>, 
+<a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/Schedule.html">Schedule</a>, 
+<a href="https://www.enseignement.polytechnique.fr/informatique/profs/Christoph.Durr/03/c/XmlTree.html">XmlTree</a>) 
+  --- à ne
+consulter qu'après le TD, sinon c'est de la triche</li>
+</ul>
+<hr>
+
+
+</body></html>

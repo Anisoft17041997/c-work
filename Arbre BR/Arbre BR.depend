@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1486857266 source:d:\c-works\arbre br\arbre.c
+	"arbre.h"
+
+1486856360 d:\c-works\arbre br\arbre.h
+	<stdio.h>
+	<stdlib.h>
+
+1486857035 source:d:\c-works\arbre br\main.c
+	"arbre.h"
+
